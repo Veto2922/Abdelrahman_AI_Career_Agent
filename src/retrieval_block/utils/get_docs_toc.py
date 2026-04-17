@@ -12,6 +12,9 @@ def get_docs_toc(
         docs_tocs = []
 
         for i in docs_index:
+            if i >= len(docs_list["documents"]):
+                logger.warning(f"Document index {i} is out of range. Skipping.")
+                continue
 
             if all_trees_index and i in all_trees_index:
                 tree = all_trees_index[i]
@@ -33,3 +36,4 @@ def get_docs_toc(
 
     except Exception:
         logger.exception('Error while trying to get_docs_toc')
+        return []
