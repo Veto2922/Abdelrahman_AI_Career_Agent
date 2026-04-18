@@ -20,7 +20,7 @@ Welcome to **Abdelrahman's AI Career Agent** — a cutting-edge interactive AI a
 
 ## 🌟 Project Highlights & Achievements
 
-- **True Agentic Workflow**: Built with **LangGraph**, the application doesn't just passively answer questions using RAG; it actively reasons, decides which internal tools to execute, and formats responses based on user context.
+- **True Agentic Workflow**: Built with **LangGraph**, the application doesn't just passively answer questions using **Vectorless RAG**; it actively reasons, decides which internal tools to execute, and formats responses based on user context.
 - **Microservices-ready Architecture**: Decoupled backend (FastAPI) and frontend (Gradio) connected via internal networking.
 - **Advanced Contextual Grounding**: Employs Tree Retrieval mechanisms, ensuring the agent *never* hallucinates skills or projects outside of the formally ingested CV context.
 - **Multilingual Support**: Can intelligently converse naturally, including responding contextually in Egyptian Arabic if prompted in Arabic.
