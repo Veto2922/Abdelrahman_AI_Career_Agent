@@ -129,6 +129,7 @@ Because the project uses Docker and the modern `uv` package manager, reproducing
 
 ## 🛠 Top Technologies Under the Hood
 
+* **[PageIndex](https://pageindex.ai/):** For building the vectorless RAG.
 * **[LangGraph](https://python.langchain.com/docs/langgraph):** For constructing stateful, multi-actor LLM applications.
 * **[FastAPI](https://fastapi.tiangolo.com/):** High-performance backend API routing constraint validation.
 * **[Gradio](https://gradio.app/):** To rapidly build highly-customizable Machine Learning UI components.
