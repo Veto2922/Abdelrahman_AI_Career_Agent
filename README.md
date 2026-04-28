@@ -1,12 +1,3 @@
----
-title: Abdelrahman AI Career Agent
-emoji: 🚀
-colorFrom: blue
-colorTo: purple
-sdk: docker
-app_port: 7860
----
-
 # Abdelrahman's AI Career Agent 🤖💼
 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Abdelrahman2922/Abdelrahman_AI_Career_Agent)
@@ -15,6 +6,9 @@ app_port: 7860
 [![Gradio](https://img.shields.io/badge/Gradio-FF7C00?style=flat&logo=gradio)](https://gradio.app/)
 
 Welcome to **Abdelrahman's AI Career Agent** — a cutting-edge interactive AI agent designed to act as a highly intelligent, 24/7 personal recruiter and interactive CV. It accurately and naturally answers conversational questions about Abdelrahman's (AI/ML Engineer) experience, skills, projects, and certifications.
+
+<img width="1511" height="903" alt="image" src="https://github.com/user-attachments/assets/6268b3e5-79a6-400f-8007-a487cf9d8a1e" />
+
 
 ---
 
