@@ -5,6 +5,8 @@ from loguru import logger
 
 router = APIRouter(prefix="/retrieval", tags=["Retrieval"])
 
+retrieval_service = get_tree_retrieval()
+
 @router.get("/docs-titles", response_model=TitlesResponse)
 async def get_docs_titles():
     """
@@ -12,7 +14,6 @@ async def get_docs_titles():
     """
     logger.info("Fetching document titles.")
     try:
-        retrieval_service = get_tree_retrieval()
         titles = retrieval_service.get_docs_titles()
         return {"titles": titles}
     except Exception as e:
@@ -26,7 +27,6 @@ async def get_toc(request: DocIndicesRequest):
     """
     logger.info(f"Fetching TOC for indices: {request.doc_indices}")
     try:
-        retrieval_service = get_tree_retrieval()
         toc = retrieval_service.get_toc(request.doc_indices)
         return {"toc": toc}
     except Exception as e:
@@ -40,7 +40,6 @@ async def retrieve_content(request: RetrieveRequest):
     """
     logger.info(f"Retrieving content for {len(request.target_docs)} documents.")
     try:
-        retrieval_service = get_tree_retrieval()
         # Convert Pydantic models to list of dicts as expected by the service
         target_docs_dict = [doc.model_dump() for doc in request.target_docs]
         content = retrieval_service.retrieve(target_docs_dict)

@@ -13,7 +13,7 @@ import uuid
 router = APIRouter(prefix="/graph", tags=["Graph Agent"])
 
 retrieval_service = get_tree_retrieval()
-
+agent = get_compiled_graph()
 
 @router.post("/chat", response_model=ChatResponse)
 async def chat_with_agent(message: UserMessage):
@@ -24,8 +24,7 @@ async def chat_with_agent(message: UserMessage):
     logger.info(f"Received message for thread {thread_id}: {message.content[:50]}...")
 
     try:
-        agent = get_compiled_graph()
-
+        
         # Get document titles as required by the graph state
         docs_titles = retrieval_service.get_docs_titles()
 
@@ -44,11 +43,28 @@ async def chat_with_agent(message: UserMessage):
         # Based on GraphState, the messages list will contain the conversation
         last_message = result["messages"][-1]
 
+        response_content = ""
+        if hasattr(last_message, "content"):
+            content = last_message.content
+            if isinstance(content, str):
+                response_content = content
+            elif isinstance(content, list):
+                # Extract text from list of blocks (e.g., from multimodal inputs/outputs)
+                texts = []
+                for block in content:
+                    if isinstance(block, dict) and "text" in block:
+                        texts.append(block["text"])
+                    elif isinstance(block, str):
+                        texts.append(block)
+                response_content = " ".join(texts) if texts else str(content)
+            else:
+                response_content = str(content)
+        else:
+            response_content = str(last_message)
+
         return {
             "thread_id": thread_id,
-            "response": last_message.content
-            if hasattr(last_message, "content")
-            else str(last_message),
+            "response": response_content,
             "full_state": {
                 k: v for k, v in result.items() if k != "messages"
             },  # Return other state bits but exclude bulky messages

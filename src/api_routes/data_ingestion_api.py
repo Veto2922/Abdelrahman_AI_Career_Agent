@@ -6,13 +6,12 @@ import os
 
 router = APIRouter(prefix="/data-ingestion", tags=["Data Ingestion"])
 
+
+data_ingestion_service = DataIngestion()
+
 # Dependency-like retrieval of the service
 def get_data_ingestion_service():
-    try:
-        return DataIngestion()
-    except Exception as e:
-        logger.error(f"Failed to initialize DataIngestion service: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+    return data_ingestion_service
 
 @router.post("/upload-file", response_model=DataIngestionResponse)
 async def upload_file(request: FileUploadRequest):
