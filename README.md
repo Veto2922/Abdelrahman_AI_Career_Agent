@@ -27,6 +27,12 @@ Welcome to **Abdelrahman's AI Career Agent** — a cutting-edge interactive AI a
 
 The codebase is organized following production-grade architectural patterns, ensuring maintainability, modularity, and scalability:
 
+<img width="1780" height="527" alt="image" src="https://github.com/user-attachments/assets/ec587077-763e-4c07-90c3-902485bac950" />
+
+
+<img width="374" height="595" alt="image" src="https://github.com/user-attachments/assets/5543532a-9214-4a48-843d-ceec286875d6" />
+
+
 ```text
 Abdelrahman_AI_Career_Agent/
 ├── __pycache__/            # Compiled Python files
